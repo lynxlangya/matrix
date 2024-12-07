@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
-import { add, subtract } from "@repo/utils/math";
+import add from "@repo/utils/math/add";
+import { subtract } from "@repo/utils/math/subtract";
 // import pino from "pino/browser";
 // @ts-ignore
 // import pino from "pino/browser";

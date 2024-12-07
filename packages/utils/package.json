@@ -8,17 +8,9 @@
     "build": "tsc"
   },
   "exports": {
-    "./math": {
-      "types": "./src/math/index.ts",
-      "default": "./dist/math/index.js"
-    },
-    "./math/add": {
-      "types": "./src/math/add.ts",
-      "default": "./dist/math/add.js"
-    },
-    "./math/subtract": {
-      "types": "./src/math/subtract.ts",
-      "default": "./dist/math/subtract.js"
+    "./math/*": {
+      "types": "./src/math/*.ts",
+      "default": "./dist/math/*.js"
     }
   },
   "keywords": [],
