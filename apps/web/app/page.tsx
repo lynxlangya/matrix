@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
+import { add, subtract } from "@repo/utils/math";
 
 export default function Home() {
   return (
@@ -19,6 +20,12 @@ export default function Home() {
             Get started by editing <code>app/page.tsx</code>
           </li>
           <li>Save and see your changes instantly.</li>
+          <li>
+            <code>add(1, 2) = {add(1, 2)}</code>
+          </li>
+          <li>
+            <code>subtract(1, 2) = {subtract(1, 2)}</code>
+          </li>
         </ol>
 
         <div className={styles.ctas}>

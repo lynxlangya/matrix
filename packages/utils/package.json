@@ -1,0 +1,33 @@
+{
+  "name": "@repo/utils",
+  "version": "1.0.0",
+  "description": "An shared utils package",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./math": {
+      "types": "./src/math/index.ts",
+      "default": "./dist/math/index.js"
+    },
+    "./math/add": {
+      "types": "./src/math/add.ts",
+      "default": "./dist/math/add.js"
+    },
+    "./math/subtract": {
+      "types": "./src/math/subtract.ts",
+      "default": "./dist/math/subtract.js"
+    }
+  },
+  "keywords": [],
+  "author": {
+    "name": "langya",
+    "email": "lynxlangya@gmail.com"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "latest"
+  }
+}
