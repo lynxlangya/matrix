@@ -2,8 +2,29 @@ import Image from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
 import { add, subtract } from "@repo/utils/math";
+// import pino from "pino/browser";
+// @ts-ignore
+// import pino from "pino/browser";
 
 export default function Home() {
+  // const logger = pino();
+
+  // logger.info({
+  //   message: "info",
+  //   a: 1,
+  //   b: 2,
+  //   target: {
+  //     c: 3,
+  //     d: 4,
+  //   },
+  //   transport: {
+  //     target: "pino-pretty",
+  //     options: {
+  //       colorize: true,
+  //     },
+  //   },
+  // });
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
