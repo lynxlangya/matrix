@@ -1,0 +1,44 @@
+# 针对开发环境的docker-compose扩展文件
+
+services:
+  nest-demo:
+    build:
+      context: ../../apps/nest-demo
+      dockerfile: Dockerfile
+      target: development
+    container_name: project_nest_demo
+    env_file:
+      - ../../docker/env/.env.development
+    environment:
+      NODE_ENV: development
+      TYPEORM_CONNECTION: postgres
+      TYPEORM_HOST: ${DB_HOST}
+      TYPEORM_PORT: ${DB_PORT}
+      TYPEORM_USERNAME: ${DB_USER}
+      TYPEORM_PASSWORD: ${DB_PASSWORD}
+      TYPEORM_DATABASE: ${DB_NAME}
+    volumes:
+      - ../../apps/nest-demo:/app
+      - /app/node_modules
+    # networks:
+    #   - backend
+    depends_on:
+      db:
+        condition: service_healthy
+      # redis:
+      #   condition: service_healthy
+    ports:
+      - "3100:3100"
+      - "9229:9229" # 用于调试
+    command: ["pnpm", "run", "start:dev"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3100/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+
+# networks:
+#   backend:
+#     external: true

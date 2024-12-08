@@ -1,0 +1,54 @@
+# 定义基础服务（数据库、缓存等）的docker-compose文件
+
+services:
+  db:
+    build:
+      context: ../services/db
+    container_name: project_nest_demo_db
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    # networks:
+    #   - backend
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${DB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # redis:
+  #   image: redis:alpine
+  #   container_name: project_nest_demo_redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   networks:
+  #     - backend
+  #   healthcheck:
+  #     test: ["CMD", "redis-cli", "ping"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+  #   restart: unless-stopped
+
+# networks:
+#   backend:
+#     driver: bridge
+
+volumes:
+  db-data:
+    driver: local
+  # redis-data:
+  #   driver: local
