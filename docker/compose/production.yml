@@ -1,1 +1,45 @@
 # 针对生产环境的扩展文件
+
+services:
+  db:
+    image: postgres:15-alpine
+    env_file:
+      - ../env/.env.production
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../services/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - nest-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  app:
+    image: nest-demo:prod
+    env_file:
+      - ../env/.env.production
+    ports:
+      - "3100:3100"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - nest-network
+    restart: unless-stopped
+
+networks:
+  nest-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
