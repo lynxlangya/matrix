@@ -1,5 +1,9 @@
 # 定义基础服务（数据库、缓存等）的docker-compose文件
 
+# 开发环境 - 启动
+# docker-compose -f docker/compose/base.yml --env-file docker/env/.env.development up -d
+# turbo dev -F nest-demo
+
 services:
   db:
     image: postgres:15-alpine

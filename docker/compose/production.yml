@@ -1,5 +1,8 @@
 # 针对生产环境的扩展文件
 
+# 生产环境 - 启动
+# docker-compose -f docker/compose/production.yml --env-file docker/env/.env.production up -d
+
 services:
   db:
     image: postgres:15-alpine

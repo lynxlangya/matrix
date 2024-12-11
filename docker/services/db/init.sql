@@ -14,5 +14,5 @@ CREATE TABLE IF NOT EXISTS example (
 );
 
 -- 插入一些测试数据
-INSERT INTO example (name) VALUES ('test1'), ('test2')
+INSERT INTO example (name) VALUES ('test1-1'), ('test1-2')
 ON CONFLICT DO NOTHING;
