@@ -14,9 +14,7 @@
 │   ├── typescript-config/ # 共享 TypeScript 配置
 │   ├── ui/               # 共享 UI 组件库
 │   └── utils/           # 共享工具函数
-├── docker/
-│   ├── dev/            # 开发环境配置
-│   └── prod/           # 生产环境配置
+├── docker/             # docker 配置
 ├── tools/             # 开发工具
 ├── tests/             # 端到端测试
 ├── scripts/           # 构建和工具脚本
