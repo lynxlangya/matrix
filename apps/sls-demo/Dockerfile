@@ -42,10 +42,6 @@ EXPOSE 3000
 
 # 设置环境变量
 ENV NODE_ENV=production
-ENV AWS_ACCESS_KEY_ID=dummy
-ENV AWS_SECRET_ACCESS_KEY=dummy
-ENV AWS_REGION=us-east-1
-ENV SERVERLESS_ACCESS_KEY=AKORVwNshgmM9i1ZgRM9BzQHLBG050VWE62LEVa4LEwqK
 
 # 启动命令
 CMD ["serverless", "offline", "--host", "0.0.0.0"]

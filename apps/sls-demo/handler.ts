@@ -25,7 +25,7 @@ const createErrorResponse = (statusCode: number, message: string): APIGatewayPro
 export const hello = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
-  return createResponse(200, { 
+  return createResponse(200, {
     message: "Hello, Serverless with TypeScript!",
     timestamp: new Date().toISOString()
   });
@@ -37,7 +37,7 @@ export const createUser = async (
 ): Promise<APIGatewayProxyResult> => {
   try {
     const body = JSON.parse(event.body || '{}');
-    
+
     if (!body.name || !body.email) {
       return createErrorResponse(400, "Name and email are required");
     }
