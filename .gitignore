@@ -6,7 +6,8 @@ node_modules
 .pnp.js
 
 # Local env files
-
+.env.development
+.env.production
 docker/env/.env*
 !docker/env/.env.example
 

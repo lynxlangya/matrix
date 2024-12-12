@@ -1,0 +1,22 @@
+
+services:
+  serverless:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - ~/.serverless:/root/.serverless
+    environment:
+      - NODE_ENV=development
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
+      - AWS_REGION=us-east-1
+      - SERVERLESS_ACCESS_KEY=AKORVwNshgmM9i1ZgRM9BzQHLBG050VWE62LEVa4LEwqK
+    command: serverless offline --host 0.0.0.0
+
+
+networks:
+  default:
+    driver: bridge

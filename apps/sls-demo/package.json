@@ -1,0 +1,19 @@
+{
+  "name": "sls-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.146",
+    "serverless-offline": "^14.4.0",
+    "serverless-typescript": "^0.0.5",
+    "typescript": "^5.7.2"
+  }
+}

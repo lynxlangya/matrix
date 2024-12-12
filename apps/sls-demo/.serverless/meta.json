@@ -1,0 +1,182 @@
+{
+  "/app": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.16",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeServiceName": null,
+    "servicePath": "/app",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "serverless-demo",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs20.x",
+        "region": "us-east-1",
+        "environment": {
+          "NODE_OPTIONS": "--enable-source-maps"
+        },
+        "apiGateway": {
+          "shouldStartNameWithService": true,
+          "minimumCompressionSize": 1024,
+          "binaryMediaTypes": [
+            "multipart/form-data"
+          ]
+        },
+        "httpApi": {
+          "cors": true
+        }
+      },
+      "functions": {
+        "hello": {
+          "handler": "dist/handler.hello",
+          "events": [
+            {
+              "http": {
+                "path": "hello",
+                "method": "get",
+                "cors": true
+              }
+            }
+          ]
+        },
+        "createUser": {
+          "handler": "dist/handler.createUser",
+          "events": [
+            {
+              "http": {
+                "path": "users",
+                "method": "post",
+                "cors": true,
+                "request": {
+                  "schemas": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "required": [
+                          "name",
+                          "email"
+                        ],
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "getUserById": {
+          "handler": "dist/handler.getUserById",
+          "events": [
+            {
+              "http": {
+                "path": "users/{userId}",
+                "method": "get",
+                "cors": true,
+                "request": {
+                  "parameters": {
+                    "paths": {
+                      "userId": true
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "searchUsers": {
+          "handler": "dist/handler.searchUsers",
+          "events": [
+            {
+              "http": {
+                "path": "users",
+                "method": "get",
+                "cors": true,
+                "request": {
+                  "parameters": {
+                    "querystrings": {
+                      "name": false,
+                      "limit": false
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "processData": {
+          "handler": "dist/handler.processData",
+          "events": [
+            {
+              "http": {
+                "path": "process",
+                "method": "post",
+                "cors": true
+              }
+            }
+          ]
+        }
+      },
+      "plugins": [
+        "serverless-offline",
+        "serverless-typescript"
+      ],
+      "custom": {
+        "serverless-offline": {
+          "httpPort": 3000,
+          "verbose": true,
+          "websocket": true
+        },
+        "typescript": {
+          "srcPath": "./",
+          "tsConfigFileName": "./tsconfig.json"
+        }
+      }
+    },
+    "serviceRawFile": "service: serverless-demo\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  region: us-east-1\n  environment:\n    NODE_OPTIONS: \"--enable-source-maps\"\n  apiGateway:\n    shouldStartNameWithService: true\n    minimumCompressionSize: 1024\n    binaryMediaTypes:\n      - 'multipart/form-data'\n  httpApi:\n    cors: true\n\nfunctions:\n  hello:\n    handler: dist/handler.hello\n    events:\n      - http:\n          path: hello\n          method: get\n          cors: true\n\n  createUser:\n    handler: dist/handler.createUser\n    events:\n      - http:\n          path: users\n          method: post\n          cors: true\n          request:\n            schemas:\n              application/json:\n                schema:\n                  type: object\n                  required:\n                    - name\n                    - email\n                  properties:\n                    name:\n                      type: string\n                    email:\n                      type: string\n\n  getUserById:\n    handler: dist/handler.getUserById\n    events:\n      - http:\n          path: users/{userId}\n          method: get\n          cors: true\n          request:\n            parameters:\n              paths:\n                userId: true\n\n  searchUsers:\n    handler: dist/handler.searchUsers\n    events:\n      - http:\n          path: users\n          method: get\n          cors: true\n          request:\n            parameters:\n              querystrings:\n                name: false\n                limit: false\n\n  processData:\n    handler: dist/handler.processData\n    events:\n      - http:\n          path: process\n          method: post\n          cors: true\n\nplugins:\n  - serverless-offline\n  - serverless-typescript\n\ncustom:\n  serverless-offline:\n    httpPort: 3000\n    verbose: true\n    websocket: true\n  typescript:\n    srcPath: ./\n    tsConfigFileName: ./tsconfig.json",
+    "command": [
+      "offline"
+    ],
+    "options": {
+      "host": "0.0.0.0"
+    },
+    "error": {
+      "message": "You must sign in or use a license key with Serverless Framework V.4 and later versions. Please use \"serverless login\".",
+      "stack": "Error: You must sign in or use a license key with Serverless Framework V.4 and later versions. Please use \"serverless login\".\n    at Authentication.getAuthenticatedData (file:///root/.serverless/releases/4.4.16/package/dist/sf-core.js:686:10535)\n    at async Authentication.resolverAuthenticate (file:///root/.serverless/releases/4.4.16/package/dist/sf-core.js:688:20566)\n    at async _Meta.authenticate (file:///root/.serverless/releases/4.4.16/package/dist/sf-core.js:696:12184)\n    at async _Meta.authenticateAndResolve (file:///root/.serverless/releases/4.4.16/package/dist/sf-core.js:696:11605)\n    at async route (file:///root/.serverless/releases/4.4.16/package/dist/sf-core.js:1010:14685)\n    at async Object.run2 [as run] (file:///root/.serverless/releases/4.4.16/package/dist/sf-core.js:1010:15173)\n    at async run3 (file:///root/.serverless/releases/4.4.16/package/dist/sf-core.js:1010:16435)"
+    },
+    "machineId": "798419c70c29e380c5815111b30c1117",
+    "stage": "dev",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  },
+  "unknown": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.16",
+    "isWithinCompose": false,
+    "composeOrgName": null,
+    "composeServiceName": null,
+    "command": [],
+    "options": {
+      "version": true
+    },
+    "error": null,
+    "machineId": "136282667695c5dc015589df8d46eac0",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}
