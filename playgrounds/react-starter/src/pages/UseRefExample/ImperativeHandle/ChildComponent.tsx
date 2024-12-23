@@ -47,7 +47,7 @@ const ChildComponent = forwardRef((_props, ref: Ref<ChildRef>) => {
   return (
     <div
       ref={divRef}
-      style={{ height: 200, overflow: 'auto', border: '1px solid #ccc' }}
+      className='h-48 overflow-auto border border-gray-300 mb-1'
     >
       {Array.from({ length: 100 }, (_, i) => (
         <p key={i}>这是第 {i + 1} 个段落</p>
