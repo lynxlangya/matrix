@@ -7,8 +7,6 @@ const Home: React.FC = () => {
   const routes = [
     { path: '/', name: 'Home' },
     { path: '/use-ref', name: 'UseRef' },
-    { path: '/projects', name: 'Projects' },
-    { path: '/blog', name: 'Blog' },
   ];
 
   return (
