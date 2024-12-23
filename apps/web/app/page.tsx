@@ -7,7 +7,7 @@ import { subtract } from "@repo/utils/math/subtract";
 // @ts-ignore
 // import pino from "pino/browser";
 
-export default function Home() {
+export default function Home(): JSX.Element {
   // const logger = pino();
 
   // logger.info({
