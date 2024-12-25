@@ -8,6 +8,7 @@ const Home: React.FC = () => {
     { path: '/', name: 'Home' },
     { path: '/use-ref', name: 'UseRef' },
     { path: '/use-state', name: 'UseState' },
+    { path: '/use-reducer', name: 'UseReducer' },
   ];
 
   return (
