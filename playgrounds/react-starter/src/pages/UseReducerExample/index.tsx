@@ -1,4 +1,5 @@
 import CounterReducer from './CounterReducer';
+import TodoList from './TodoList';
 
 const UseReducerExample = () => {
   return (
@@ -60,6 +61,10 @@ const UseReducerExample = () => {
         </ul>
       </div>
 
+      <hr className="my-2" />
+
+      <p className="font-bold text-center">2. TodoList 进阶</p>
+      <TodoList />
       <hr className="my-2" />
     </div>
   );
