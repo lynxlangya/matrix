@@ -12,6 +12,7 @@ const ExpensiveChild: React.FC<ExpensiveChildProps> = ({ data, onClick }) => {
 
   // 不使用 useMemo
   console.log('「未使用 memo」 - ExpensiveChild 内部计算 sum');
+  // 每次渲染都重新计算 sum，即使 data 没有变化。极大地影响性能。
   const sum = data.reduce((acc, curr) => acc + curr, 0);
   // const [sum, setSum] = useState(0);
   // useEffect(() => {
