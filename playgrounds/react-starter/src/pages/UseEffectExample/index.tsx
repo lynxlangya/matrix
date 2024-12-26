@@ -94,8 +94,8 @@ const UseEffectExample = () => {
           <li>2. useEffect 则再浏览器完成渲染后再执行</li>
           <li>
             3. 一般情况下：
-            <li className='font-bold'>如果不需要同步测量 DOM，优先使用 useEffect，避免阻塞渲染。</li>
-            <li>只有在确实需要同步 DOM 操作时采用 useLayoutEffect，否则会引发性能问题或视觉抖动</li>
+            <div className='font-bold'>如果不需要同步测量 DOM，优先使用 useEffect，避免阻塞渲染。</div>
+            <i>只有在确实需要同步 DOM 操作时采用 useLayoutEffect，否则会引发性能问题或视觉抖动</i>
           </li>
         </ul>
       </div>

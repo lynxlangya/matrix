@@ -10,6 +10,7 @@ const Home: React.FC = () => {
     { path: '/use-state', name: 'UseState' },
     { path: '/use-reducer', name: 'UseReducer' },
     { path: '/use-effect', name: 'UseEffect' },
+    { path: '/use-memo', name: 'UseMemo' },
   ];
 
   return (
