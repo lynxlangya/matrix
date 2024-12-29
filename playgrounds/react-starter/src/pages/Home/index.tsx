@@ -12,6 +12,7 @@ const Home: React.FC = () => {
     { path: '/use-effect', name: 'UseEffect' },
     { path: '/use-memo', name: 'UseMemo' },
     { path: '/use-callback', name: 'UseCallback' },
+    { path: '/custom-hooks', name: 'CustomHooks' },
   ];
 
   return (
