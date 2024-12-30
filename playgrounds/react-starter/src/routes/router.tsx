@@ -8,6 +8,7 @@ import UseEffectExample from '../pages/UseEffectExample';
 import UseMemoExample from '../pages/UseMemoExample';
 import UseCallbackExample from '../pages/UseCallbackExample';
 import CustomHooks from '../pages/CustomHooks';
+import ReactQuery from '../pages/ReactQuery';
 
 const AppRouter = () => {
   return (
@@ -21,6 +22,7 @@ const AppRouter = () => {
         <Route path="/use-memo" element={<UseMemoExample />} />
         <Route path="/use-callback" element={<UseCallbackExample />} />
         <Route path="/custom-hooks" element={<CustomHooks />} />
+        <Route path="/react-query" element={<ReactQuery />} />
       </Routes>
     </Router>
   );

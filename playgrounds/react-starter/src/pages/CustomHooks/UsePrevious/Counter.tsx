@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import usePrevious from './usePrevious';
+import usePrevious from './UsePrevious';
 import Button from '@/components/Button';
 
 function Counter() {

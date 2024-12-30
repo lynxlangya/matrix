@@ -13,6 +13,7 @@ const Home: React.FC = () => {
     { path: '/use-memo', name: 'UseMemo' },
     { path: '/use-callback', name: 'UseCallback' },
     { path: '/custom-hooks', name: 'CustomHooks' },
+    { path: '/react-query', name: 'ReactQuery' },
   ];
 
   return (
